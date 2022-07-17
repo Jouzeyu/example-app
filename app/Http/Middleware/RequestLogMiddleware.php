@@ -9,8 +9,8 @@ use Illuminate\Http\Request;
 class RequestLogMiddleware
 {
     /**
-     * @param Request $request
-     * @param Closure $next
+     * @param  Request  $request
+     * @param  Closure  $next
      * @return mixed
      */
     public function handle(Request $request, Closure $next): mixed
@@ -23,9 +23,10 @@ class RequestLogMiddleware
             'url' => $request->path(),
             'request' => $request->all(),
             'response' => $next($request),
-            'time' => sprintf("%.4f", ($time2 - $time1)) . '秒',
+            'time' => sprintf('%.4f', ($time2 - $time1)).'秒',
             'method' => $request->method(),
         ]);
+
         return $response;
     }
 }
