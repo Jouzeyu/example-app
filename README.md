@@ -2,7 +2,7 @@
 
 ------
 
-### 20220717日志详情
+### 20220717开发详情
 
 #### 主题：
 
@@ -47,3 +47,33 @@ REDIS_CLIENT=predis //.env中需要添加
 
 - 每次需要操作一步，感觉有点麻烦；
 
+### 20220718开发详情
+
+#### 主题：
+
+更改了部分记录日志内容。
+
+#### 详细说明
+
+- 增加了请求ip地址、header头及请求用户id；
+
+#### 主题：
+
+统一规范api响应格式，处理返回异常。
+
+#### 详细说明
+
+- 安装laravel-response拓展包；
+- App\Exceptions\Handler中增加了异常处理方法；
+
+#### 涉及命令
+
+```php
+use Jiannei\Response\Laravel\Support\Facades\Response;
+
+Response::success(['data' => 'success']);
+```
+
+#### 优化不足
+
+- 首次尝试；
