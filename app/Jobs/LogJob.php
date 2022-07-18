@@ -36,9 +36,12 @@ class LogJob implements ShouldQueue
     {
         Log::info('--------------------------请求日志队列开始--------------------------');
         Log::info('队列名称:'.$this->RunJob);
+        Log::info('请求ip:'.$this->data['ip_address']);
         Log::info('请求地址:'.$this->data['url']);
         Log::info('请求方式:'.$this->data['method']);
-        Log::info('请求参数:'.json_encode($this->data['request'], JSON_UNESCAPED_UNICODE));
+        Log::info('请求用户id:'.$this->data['user_id']);
+        Log::info('请求header头:'.$this->data['header']);
+        Log::info('请求参数:'.json_encode($this->data['param'], JSON_UNESCAPED_UNICODE));
         Log::info('返回结果:'.json_encode($this->data['response'], JSON_UNESCAPED_UNICODE));
         Log::info('运行时长:'.$this->data['time']);
         Log::info('--------------------------请求日志队列结束--------------------------');
